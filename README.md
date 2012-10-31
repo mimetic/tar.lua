@@ -17,17 +17,27 @@ Open a terminal window and create a tar file without compression:
 Sample Lua Code for Corona SDK:
 
 local tarfilepath = "my/tarfiles/mytarfile.tar"
+
 local sourcePath = system.DocumentsDirectory
+
 local targetDirectory = "mydir/ishere"
+
 local targetPath = system.pathForFile(targetDirectory, system.DocumentsDirectory )
+
 -- or, simply use either system.CachesDirectory or system.DocumentsDirectory for targetPath:
+
 -- local targetPath = system.CachesDirectory
 
 -- function to run when tar has completed
+
 -- This example deletes the tar file, now that it has been expanded.
+
 local function onComplete()
+
     os.remove(system.pathForFile(tarfilepath, sourcePath) )
+
     print ("Tar file deleted after expansion!")
+
 end
 
 local tar.untar(tarfilepath, sourcePath, targetPath, onComplete)
